@@ -14,8 +14,6 @@ jobs:
 
     runs-on: ubuntu-latest
     
-    container: us.gcr.io/dev-main/test-harness
-    
     steps:
     - name: Checkout code from main branch
       uses: actions/checkout@v3
@@ -40,3 +38,5 @@ jobs:
         cd demo
         cd target
         ls -a
+      
+    container: us.gcr.io/dev-main/test-harness 
