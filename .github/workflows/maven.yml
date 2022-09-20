@@ -13,7 +13,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    container: us.gcr.io/dev-main/test-harness, maven:latest
+    container: maven:latest
    
     steps:
     - name: Checkout code from main branch
