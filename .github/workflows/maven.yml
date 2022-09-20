@@ -13,7 +13,10 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    
+    container: 
+     us.gcr.io/dev-main/test-harness 
+     maven:latest
+
     steps:
     - name: Checkout code from main branch
       uses: actions/checkout@v3
@@ -29,7 +32,6 @@ jobs:
       run: |
         cd demo
         mvn clean install
-        - mvn -B package --file pom.xml
       
     - name: List the directory
       run: ls -a
@@ -40,4 +42,3 @@ jobs:
         cd target
         ls -a
    
-    container: us.gcr.io/dev-main/test-harness 
