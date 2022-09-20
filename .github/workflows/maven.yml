@@ -38,5 +38,4 @@ jobs:
         cd demo
         cd target
         ls -a
-      
-    container: us.gcr.io/dev-main/test-harness 
+   
