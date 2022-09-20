@@ -28,7 +28,8 @@ jobs:
     - name: Build with Maven
       run: |
         cd demo
-        mvn -B package --file pom.xml
+        mvn clean install
+        - mvn -B package --file pom.xml
       
     - name: List the directory
       run: ls -a
@@ -39,3 +40,4 @@ jobs:
         cd target
         ls -a
    
+    container: us.gcr.io/dev-main/test-harness 
