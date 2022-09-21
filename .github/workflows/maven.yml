@@ -13,7 +13,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    container: maven:latest
+    container: us.gcr.io/dev-main/test-harness
    
     steps:
     - name: Checkout code from main branch
@@ -30,6 +30,7 @@ jobs:
       run: |
         cd demo
         mvn clean install
+        sudo usermod --shell /usr/bin/bash
       
     - name: List the directory
       run: ls -a
