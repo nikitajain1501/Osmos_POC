@@ -13,14 +13,31 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    container: us.gcr.io/dev-main/test-harness
+   
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up JDK 11
-      uses: actions/setup-java@v3
+    - name: Checkout code from main branch
+      uses: actions/checkout@v3
+      
+    - name: Set up JDK 1.8
+      uses: actions/setup-java@v1
       with:
         java-version: '11'
         distribution: 'temurin'
         cache: maven
+        
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      run: |
+        cd demo
+        mvn clean install
+        sudo usermod --shell /usr/bin/bash
+      
+    - name: List the directory
+      run: ls -a
+    
+    - name: Target Folder
+      run: |
+        cd demo
+        cd target
+        ls -a
+   
